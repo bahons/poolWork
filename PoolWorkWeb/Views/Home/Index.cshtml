@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Выберите файл для загрузки</h3>
+            <p style="color:red">ВАЖНО!!!. wwwroot - файл не загружать!</p>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" name="upload" /><br>
+                <input type="text" name="pool" /><br />
+                <input type="submit" value="Загрузить" />
+            }
+        </div>
+    </div>
+</div>
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Pool Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>geo старый админка</td>
+                <td>OldGeo</td>
+            </tr>
+            <tr>
+                <td>nuska</td>
+                <td>nuskapool</td>
+            </tr>
+            <tr>
+                <td>analiz admin</td>
+                <td>DefaultAppPool</td>
+            </tr>
+            <tr>
+                <td>ananizapi</td>
+                <td>ananizapi</td>
+            </tr>
+            <tr>
+                <td>Log admin</td>
+                <td>LogPool</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
