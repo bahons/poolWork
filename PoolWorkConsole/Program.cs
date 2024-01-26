@@ -25,12 +25,16 @@ namespace PoolWorkConsole
             {
                 String ZipPath = @"c:\logs\parser.zip";
                 String extractPath = @"C:\logs\parserfile";
-                System.IO.DirectoryInfo di = new DirectoryInfo(extractPath);
-                foreach (FileInfo file in di.EnumerateFiles())
-                {
-                    file.Delete();
-                }
-                ZipFile.ExtractToDirectory(ZipPath, extractPath);
+                String createPath = @"C:\!pub\parserfile.zip";
+
+                ZipFile.CreateFromDirectory(extractPath, "C:\\!pub\\parserfile-" + DateTime.Now.ToString(format: "HH-dd") + ".zip");
+
+                //System.IO.DirectoryInfo di = new DirectoryInfo(extractPath);
+                //foreach (FileInfo file in di.EnumerateFiles())
+                //{
+                //    file.Delete();
+                //}
+                //ZipFile.ExtractToDirectory(ZipPath, extractPath);
             }
             catch(Exception ex)
             {

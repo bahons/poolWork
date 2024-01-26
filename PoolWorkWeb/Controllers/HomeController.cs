@@ -31,6 +31,7 @@ namespace PoolWorkWeb.Controllers
                 // сохраняем файл в папку Files в проекте
                 upload.SaveAs(path);
 
+                // путь файлов проекта
                 String extractPath = "";
                 if (pool == "OldGeo")
                     extractPath = @"C:/inetpub/wwwroot3/oldgeo";
@@ -43,7 +44,10 @@ namespace PoolWorkWeb.Controllers
                 else if (pool == "LogPool")
                     extractPath = @"C:/inetpub/logapp";
                 else if (pool == "HSCApp")
-                    extractPath = @"C:\inetpub\wwwroot\HSCApp";
+                    extractPath = @"C:/inetpub/wwwroot/HSCApp";
+
+                // backup 
+                ZipFile.CreateFromDirectory(extractPath, "C:\\inetpub\\!backups\\" + pool + "-" + DateTime.Now.ToString(format: "HH-dd") + ".zip");
 
                 // stop pool
                 performRequestedAction("localhost", pool, "stop");
